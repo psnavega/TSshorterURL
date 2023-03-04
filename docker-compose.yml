@@ -1,0 +1,32 @@
+version: '3'
+services:
+    mongo:
+      container_name: mongo
+      image: mongo:4
+      ports:
+          - 27017:27017
+    redis:
+      container_name: redis
+      image: redis:4.0.6
+      ports:
+        - 6379:6379
+      links:
+        - mongo
+
+    app:
+      build: .
+      command: yarn dev
+      ports:
+          - 4000:4000
+      environment: 
+          PORT: 4000
+      volumes:
+          - .:/src
+          - nodemodules:/node_modules
+      links:
+          - mongo
+      depends_on: 
+          - mongo
+
+volumes:
+  nodemodules: {}
