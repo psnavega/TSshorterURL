@@ -16,7 +16,7 @@ export async function getAllShortURLController(req: Request, res: Response) {
 			return res.status(200).send(shortURLs);
 		}
 	
-		return res.status(200).send(cache);
+		return res.status(200).send(JSON.parse(cache));
 	} catch(e) {
 		console.log(e);
 		res.status(500).send(e);
