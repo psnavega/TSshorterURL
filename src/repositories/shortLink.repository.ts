@@ -1,5 +1,5 @@
 import { ShortURL } from "../models/shortLink";
-import { IShortURL } from "../interfaces/shortLink";
+import { IShortURL } from "../interfaces/shortURL";
 
 export function getAllShortURL(): Promise<IShortURL[]>{
 	console.log("3");

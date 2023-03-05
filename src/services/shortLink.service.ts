@@ -1,4 +1,4 @@
-import { IShortURL } from "src/interfaces/shortLink";
+import { IShortURL } from "../interfaces/shortURL";
 import {
 	getAllShortURL,
 	getOneShortURL,
@@ -8,7 +8,6 @@ import { generateShortURL } from "../utils/converterURL";
 
 export function getAllShortURLService(): Promise<IShortURL[]> {
 	try{
-		console.log("2");
 		return getAllShortURL();
 	} catch(e) {
 		console.log(e);

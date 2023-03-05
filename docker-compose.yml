@@ -18,8 +18,11 @@ services:
       command: yarn dev
       ports:
           - 4000:4000
-      environment: 
-          PORT: 4000
+      environment:
+        - MONGO_URI=$MONGO_URI
+        - REDIS_URI=$REDIS_URI
+        - PORT=$PORT
+        - NODE_ENV=$NODE_ENV 
       volumes:
           - .:/src
           - nodemodules:/node_modules
